@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title><%=title%></title>
+</head>
+<body>
+  <%-include("partials/nav") %>
+  <h2><%=title%></h2>
+
+  <%-include("partials/errors") %>
+  <form method="post" action="/sign-up" class="sign-up-form">
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" id="firstname" placeholder="First Name" value="<%=locals.firstname || ''%>" required/>
+    <label for="lastname">Last Name</label>
+    <input type="text" name="lastname" id="lastname" placeholder="Last Name" value="<%=locals.lastname || '' %>" required/>
+
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" placeholder="Username" value="<%=locals.username || ''%>" required/>
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required/>
+
+    <label for="confirmpassword">Confirm Password</label>
+    <input type="password" name="confirmpassword" id="confirmpassword" required />
+
+    <button type="submit">Sign Up</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<ul class="navigation-bar">
+  <% if(locals.user) { %>
+    <li>
+      <form method="post" action="/log-out">
+        <button type="submit">Log out</button>
+      </form>
+    </li>
+    <li><a href="/message/new">New Message</a></li>
+    <%if(!user.membership){ %>
+      <li><a href="/join-membership">Join Membership</a></li>
+    <%}else{%>
+      <%if (!user.admin){%>
+        <li><a href="/admin">Become admin</a></li>
+      <%}%>
+    <%}%>
+    <% } else { %>
+    <li><a href="/sign-up">Sign Up</a></li>
+    <li><a href="/log-in">Log In</a></li>
+  <% } %>
+</ul>

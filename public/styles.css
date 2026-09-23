@@ -1,0 +1,286 @@
+/* ============================
+   Base / Reset
+   ============================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background-color: #f3f0ee;
+  color: #3a3232;
+  line-height: 1.5;
+}
+
+h1, h2 {
+  color: #7a2e2e;
+  padding: 0 1.5rem;
+}
+
+/* ============================
+   Navigation
+   ============================ */
+.navigation-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  background-color: #e8e2df;
+  border-bottom: 2px solid #c9403a;
+  gap: 1.25rem;
+}
+
+.navigation-bar li {
+  display: inline-block;
+}
+
+.navigation-bar a {
+  text-decoration: none;
+  color: #7a2e2e;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.15s ease;
+}
+
+.navigation-bar a:hover {
+  background-color: #dcd3cf;
+}
+
+.navigation-bar form {
+  margin: 0;
+}
+
+.navigation-bar button {
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #7a2e2e;
+  cursor: pointer;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.navigation-bar button:hover {
+  background-color: #dcd3cf;
+}
+
+/* ============================
+   Errors
+   ============================ */
+.errors {
+  list-style: none;
+  margin: 1rem 1.5rem;
+  padding: 0;
+}
+
+.errors .error {
+  background-color: #fbe4e2;
+  color: #8a2c26;
+  border-left: 4px solid #c9403a;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.5rem;
+  border-radius: 3px;
+  font-size: 0.92rem;
+}
+
+/* ============================
+   Shared form layout
+   ============================ */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 420px;
+  margin: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  gap: 0.35rem;
+}
+
+form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.6rem;
+  color: #5a4c4c;
+}
+
+form input,
+form textarea {
+  padding: 0.55rem 0.7rem;
+  border-radius: 5px;
+  border: 1px solid #d3c9c5;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #fffdfc;
+}
+
+form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #c9403a;
+  box-shadow: 0 0 0 2px rgba(201, 64, 58, 0.15);
+}
+
+form button {
+  margin-top: 1rem;
+  padding: 0.65rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #fff;
+  transition: opacity 0.15s ease;
+}
+
+form button:hover {
+  opacity: 0.9;
+}
+
+/* ============================
+   Distinct form colors
+   ============================ */
+.sign-up-form {
+  background-color: #f7f1ee;
+  border: 1px solid #e3d5cd;
+}
+.sign-up-form button {
+  background-color: #b56b5a;
+}
+
+.log-in-form {
+  background-color: #eef1ef;
+  border: 1px solid #d6ded9;
+}
+.log-in-form button {
+  background-color: #6b8b7a;
+}
+
+.membership-form {
+  background-color: #f3e7e6;
+  border: 1px solid #e0c7c4;
+}
+.membership-form button {
+  background-color: #8a2c26;
+}
+
+.admin-form {
+  background-color: #ece6ef;
+  border: 1px solid #d8cede;
+}
+.admin-form button {
+  background-color: #7a5c8a;
+}
+
+.new-message-form {
+  background-color: #f0efe9;
+  border: 1px solid #dbd8ce;
+}
+.new-message-form button {
+  background-color: #b58a3f;
+}
+
+/* ============================
+   Membership flavor text
+   ============================ */
+.membership-flavor-text {
+  font-style: italic;
+  color: #8a6b6b;
+  letter-spacing: 0.03em;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  border-left: 3px solid #c9403a;
+  padding-left: 0.75rem;
+}
+
+/* ============================
+   Message list / cards
+   ============================ */
+.message-list {
+  list-style: none;
+  margin: 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message {
+  background-color: #faf7f5;
+  border: 1px solid #e3d9d5;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.message-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #7a2e2e;
+  margin-bottom: 0.4rem;
+}
+
+.message-text {
+  color: #3a3232;
+  margin-bottom: 0.75rem;
+  white-space: pre-wrap;
+}
+
+.message-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ece3e0;
+  padding-top: 0.6rem;
+}
+
+.message-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.8rem;
+  color: #8a7a7a;
+}
+
+.message-meta .user-name {
+  font-weight: 600;
+  color: #5a4c4c;
+}
+
+.delete-message {
+  margin: 0;
+}
+
+.delete-message button {
+  background-color: transparent;
+  color: #c9403a;
+  border: 1px solid #c9403a;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-message button:hover {
+  background-color: #c9403a;
+  color: #fff;
+}
+
+/* ============================
+   Error page
+   ============================ */
+a {
+  color: #7a2e2e;
+}
