@@ -60,52 +60,6 @@ A message board built with Express, PostgreSQL, and Passport.js authentication. 
 └── .env                          # environment variables (not committed)
 ```
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v18+ recommended)
-- A running PostgreSQL instance (local or hosted)
-
-### 1. Clone and install dependencies
-
-```bash
-git clone <your-repo-url>
-cd Modern-Message-Board
-npm install
-```
-
-### 2. Set up environment variables
-
-Create a `.env` file in the project root:
-
-```env
-DATABASE_URL=postgresql://user:password@localhost:5432/modern_message_board
-COOKIE_SECRET=some-long-random-string
-```
-
-> Adjust variable names above to match whatever your `db/pool.js` and passcode-lookup logic actually expect.
-
-### 3. Set up the database
-
-Run the seed script to create the required tables (`users`, `messages`, `user_sessions`):
-
-```bash
-node db/populatedb.js <your-connection-string>
-```
-
-### 4. Start the server
-
-```bash
-node app.js
-```
-
-By default, the app runs on:
-
-```
-http://localhost:8080
-```
-
 ## Usage
 
 1. **Sign up** for an account from the nav bar.
@@ -144,3 +98,19 @@ Standard `connect-pg-simple` session table (`sid`, `sess`, `expire`).
 - Passwords are hashed with bcrypt before storage — plaintext passwords are never saved.
 - Session cookies are configured with a short expiry for testing; adjust `cookie.maxAge` in `app.js` for production use.
 - Membership and admin status are stored per-user in the database, so they persist across sessions.
+
+## Future Improvements
+
+- **Message editing** — allow users to edit their own messages, not just delete (admin-only)
+- **Pagination** — load messages in pages/batches instead of fetching every message on every visit
+- **Own-message deletion** — let regular users delete their own posts, separate from admin's ability to delete any message
+- **Rate limiting** — throttle login attempts and message posting to reduce abuse/brute-force risk
+- **Flash messages / toasts** — replace full-page error re-renders with lightweight, dismissible notifications
+- **Password reset flow** — email-based (or security-question-based) password recovery
+- **Profile page** — let users view/edit their own info (name, avatar) and see their post history
+- **Migrations tool** — replace the manual `populatedb.js` seed script with a proper migration tool (e.g. `node-pg-migrate`, Knex, Prisma) to handle schema changes safely over time
+- **Environment-based config** — separate `.env` settings for development vs. production (e.g. longer session `maxAge`, stricter cookie settings, `secure: true` cookies over HTTPS)
+- **Automated tests** — unit tests for validators/queries, integration tests for auth and message flows
+- **Responsive design polish** — refine the CSS for smaller screens (mobile nav collapse, stacked message footer)
+- **Search/filter messages** — by title, author, or date range
+- **Rich text or markdown support** — allow basic formatting in message bodies instead of plain text
